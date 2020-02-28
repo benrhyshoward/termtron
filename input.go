@@ -139,14 +139,14 @@ func generateStartingPositions(numberOfPlayers int) [][]model.Point {
 		return [][]model.Point{
 			[]model.Point{
 				model.Point{
-					X: TerminalWidth / 4,
-					Y: TerminalHeight / 2,
+					X: ScaledTerminalWidth / 4,
+					Y: ScaledTerminalHeight / 2,
 				},
 			},
 			[]model.Point{
 				model.Point{
-					X: 3 * TerminalWidth / 4,
-					Y: TerminalHeight / 2,
+					X: 3 * ScaledTerminalWidth / 4,
+					Y: ScaledTerminalHeight / 2,
 				},
 			},
 		}
@@ -154,20 +154,20 @@ func generateStartingPositions(numberOfPlayers int) [][]model.Point {
 		return [][]model.Point{
 			[]model.Point{
 				model.Point{
-					X: TerminalWidth / 4,
-					Y: TerminalHeight / 4,
+					X: ScaledTerminalWidth / 4,
+					Y: ScaledTerminalHeight / 4,
 				},
 			},
 			[]model.Point{
 				model.Point{
-					X: 3 * TerminalWidth / 4,
-					Y: TerminalHeight / 4,
+					X: 3 * ScaledTerminalWidth / 4,
+					Y: ScaledTerminalHeight / 4,
 				},
 			},
 			[]model.Point{
 				model.Point{
-					X: TerminalWidth / 2,
-					Y: 3 * TerminalHeight / 4,
+					X: ScaledTerminalWidth / 2,
+					Y: 3 * ScaledTerminalHeight / 4,
 				},
 			},
 		}
@@ -175,26 +175,26 @@ func generateStartingPositions(numberOfPlayers int) [][]model.Point {
 		return [][]model.Point{
 			[]model.Point{
 				model.Point{
-					X: TerminalWidth / 4,
-					Y: TerminalHeight / 4,
+					X: ScaledTerminalWidth / 4,
+					Y: ScaledTerminalHeight / 4,
 				},
 			},
 			[]model.Point{
 				model.Point{
-					X: 3 * TerminalWidth / 4,
-					Y: TerminalHeight / 4,
+					X: 3 * ScaledTerminalWidth / 4,
+					Y: ScaledTerminalHeight / 4,
 				},
 			},
 			[]model.Point{
 				model.Point{
-					X: TerminalWidth / 4,
-					Y: 3 * TerminalHeight / 4,
+					X: ScaledTerminalWidth / 4,
+					Y: 3 * ScaledTerminalHeight / 4,
 				},
 			},
 			[]model.Point{
 				model.Point{
-					X: 3 * TerminalWidth / 4,
-					Y: 3 * TerminalHeight / 4,
+					X: 3 * ScaledTerminalWidth / 4,
+					Y: 3 * ScaledTerminalHeight / 4,
 				},
 			},
 		}

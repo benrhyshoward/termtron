@@ -26,6 +26,18 @@ var TerminalWidth int
 //TerminalHeight : updated in game loop
 var TerminalHeight int
 
+//Scaling factors used to account for terminal cells not being square
+//They define how many horizontal and vertical cells should make up a single point in the game
+//XScalingFactor = 2 and YScalingFactor = 1 tends to give best results
+var XScalingFactor = 2
+var YScalingFactor = 1
+
+//ScaledTerminalWidth : TerminalWidth with X scaling factor applied, updated in game loop
+var ScaledTerminalWidth int
+
+//ScaledTerminalHeight : TerminalHeight with Y scaling factor applied, updated in game loop
+var ScaledTerminalHeight int
+
 //ControlPresets : mappings between key presses and directions
 var ControlPresets = []model.ControlScheme{
 	model.ControlScheme{

@@ -9,8 +9,12 @@ import (
 )
 
 func draw(game *model.Game) {
+
 	TerminalWidth, TerminalHeight = termbox.Size()
+	ScaledTerminalWidth, ScaledTerminalHeight = TermSizeScaled()
+
 	termbox.Clear(termbox.ColorBlack, termbox.ColorBlack)
+	drawBoundary()
 
 	switch game.State {
 	case model.Menu:
@@ -34,6 +38,20 @@ func draw(game *model.Game) {
 	}
 
 	termbox.Flush()
+}
+
+// Add additional boundary if scaling factors and terminal size leads to excess cells
+func drawBoundary() {
+	xOverlap := TerminalWidth % XScalingFactor
+	yOverlap := TerminalHeight % YScalingFactor
+
+	if xOverlap > 0 {
+		drawRectangle(TerminalWidth-xOverlap, 0, xOverlap, TerminalHeight, termbox.ColorWhite)
+	}
+	if yOverlap > 0 {
+		drawRectangle(0, TerminalHeight-yOverlap, TerminalWidth, yOverlap, termbox.ColorWhite)
+	}
+
 }
 
 func drawMainMenu(players []*model.Player) {
@@ -89,7 +107,7 @@ func drawPlayers(players []*model.Player) {
 			if player.Alive == false {
 				char = 'X'
 			}
-			termbox.SetCell(v.X, v.Y, char, termbox.ColorBlack, player.Color)
+			SetCellScaled(v.X, v.Y, char, termbox.ColorBlack, player.Color)
 		}
 	}
 }
@@ -128,7 +146,7 @@ func drawPlayerDirections(players []*model.Player) {
 			}
 			directionChar = '←'
 		}
-		termbox.SetCell(directionCell.X, directionCell.Y, directionChar, termbox.ColorWhite, termbox.ColorBlack)
+		SetCellScaled(directionCell.X, directionCell.Y, directionChar, termbox.ColorWhite, termbox.ColorBlack)
 	}
 }
 
@@ -147,7 +165,7 @@ func drawResults(players []*model.Player, width int, height int, boxColour termb
 	}
 	if len(survivors) == 1 {
 		drawCenteredText("Player "+strconv.Itoa(survivors[0].Id)+" won!", topOfBox+2*padding, textColour, boxColour)
-		drawCenteredText("                         o", topOfBox+3*padding, termbox.ColorBlack, survivors[0].Color)
+		drawCenteredText("                           ", topOfBox+3*padding, termbox.ColorBlack, survivors[0].Color)
 	} else {
 		drawCenteredText("It's a tie!", topOfBox+2*padding+1, textColour, boxColour)
 	}

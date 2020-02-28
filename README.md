@@ -17,7 +17,6 @@ $GOPATH/bin/termtron
 ```
 
 ### Possible improvements
-- Account for rectangular cell sizes in terminal - players currently move faster Up and Down than Left and Right.
 - System to keep track of how many rounds each player has won.
 - Dockerise.
 - Add tests.

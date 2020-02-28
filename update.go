@@ -192,5 +192,5 @@ func isPointSafeForPlayer(point model.Point, player *model.Player, players []*mo
 }
 
 func pointOutOfBounds(point model.Point) bool {
-	return point.X < 0 || point.X >= TerminalWidth || point.Y < 0 || point.Y >= TerminalHeight
+	return point.X < 0 || point.X >= ScaledTerminalWidth || point.Y < 0 || point.Y >= ScaledTerminalHeight
 }
