@@ -13,7 +13,7 @@ func SetCellScaled(x, y int, ch rune, fg, bg termbox.Attribute) {
 	}
 }
 
-// TermSizeScaled : return the termial width and height accouting for scaling factors
+// TermSizeScaled : return the terminal width and height accounting for scaling factors
 func TermSizeScaled() (width int, height int) {
 	termWidth, termHeight := termbox.Size()
 
